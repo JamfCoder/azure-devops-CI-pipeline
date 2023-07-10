@@ -24,7 +24,7 @@ stages:
                $(tag)
         
          # Task 2 publish build artifacts
-         - task: PublishedPipelineArtifact@1
+         - task: PublishPipelineArtifact@1
            inputs:
             PathtoPublish: '$(System.DefaultWorkingDirectory)/kube-manifests'
             ArtifactName: 'kube-manifests'
