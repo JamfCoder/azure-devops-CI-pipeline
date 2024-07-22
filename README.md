@@ -14,9 +14,9 @@ spec:
     server: https://kubernetes.default.svc
     namespace: monitoring
   source:
-    repoURL: wfcuprimaryregistry.azurecr.io/helm
-    chart: swo-k8s-collector
-    targetRevision: 3.4.0
+    repoURL: https://github.com/solarwinds/swi-k8s-opentelemetry-collector.git
+    chart: deploy/helm
+    targetRevision: master
     helm:
       valuesObject:
         otel:
@@ -37,7 +37,7 @@ spec:
           image:
             repository: wfcuprimaryregistry.azurecr.io/tools/solarwinds/swo-agent
             tag: v2.8.85
-
+          apiTokenSecretName: solarwinds-api-token
   syncPolicy:
     syncOptions:
       - ServerSideApply=true
